@@ -170,7 +170,7 @@ function updateStatus() {
     var urlp1 ="https://sheetdb.io/api/v1/xa7vj6uk2ngyj/phone_number/";
     var urlp2 = "?Status=complete";
     var totalurl = urlp1+umno+urlp2;
-    alert(totalurl)
+    // alert(totalurl)
     // call api
     fetch(totalurl, {
         method: 'PUT',
@@ -208,7 +208,7 @@ function updateSolvedDate() {
     var urlpa3 ="?Solved_date="
     var date = new Date();
     var finalurl =urlpa1+urlpa2+urlpa3+date;
-    alert(finalurl) 
+    // alert(finalurl) 
 
     // call api
     fetch(finalurl, {
