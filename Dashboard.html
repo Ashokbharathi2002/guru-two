@@ -31,7 +31,14 @@
     <link rel="stylesheet" href="/css/dashboard.css">
 </head>
 <body>
-
+    <script>
+        // Disable right click on the page
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        // Disable right click on specific element
+        const elm = document.getElementById('appointment');
+        elm.addEventListener('contextmenu', event => event.preventDefault());
+        elm.addEventListener('click', Fun_call);
+    </script>
     <!-- Navbar Start -->
     <div class="container-fluid nav-bar bg-transparent">
         <nav class="navbar navbar-expand-lg bg-white navbar-light py-0 px-4">
@@ -62,7 +69,7 @@
                 <button class="dashbtn" onclick="{document.getElementById('appointment').style.display='block'}"> Appointment </button>
                 <button class="dashbtn"> User  </button>
                 <button class="dashbtn"> Staff </button>
-                <!-- <button class="dashbtn"> Button</button> -->
+                <button class="dashbtn"> Report </button>
             </div>
         </div>
     </section>
@@ -135,6 +142,23 @@
                 </div>
                 <button class="btn btn-primary" onclick="getuserdata(event)">get all User</button>
                 <div id="userList"></div>
+            </div>
+        </div>    
+    </section>
+    <!-- Report -->
+    <section id="appointment" style="display: block;">
+        <div class="container-fluid bg-light py-5 w-100"  style="margin: auto;">
+            <div class="container py-5">
+                <h1 style="text-align: center;">User Report.</h1>
+                <div>
+                    <select class="form-select" id="reportcont" style="width: 200px; margin: auto;" aria-label="Default select example">
+                        <option selected>Open this select menu</option>
+                        <option value="pending">pending</option>
+                        <option value="complete">complete</option>
+                    </select>                    
+                    <button id="fetch-appointments" onclick="getReports()" class="btn btn-primary" style="margin: 20px auto; display: block;">Fetch Reports</button>
+                    <div id="reportlist" style="overflow: scroll;"></div>
+                </div>
             </div>
         </div>    
     </section>

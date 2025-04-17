@@ -239,3 +239,52 @@ function updateSolvedDate() {
     })
 
 }
+// get all reports
+function getReports() {
+    var Type = document.getElementById("reportcont").value;
+    var url = "https://sheetdb.io/api/v1/xa7vj6uk2ngyj/search?Status=";
+    var apiurl = url+Type;
+    // alert(apiurl)
+    // call api
+    fetch(apiurl)
+    .then(response =>response.json())
+    .then(data => {
+
+        // console.log(data)
+        let staffs = data
+        // console.log(staffs)
+        var table = "<table class= table table-sm>";
+        
+        // now add another row to show subject
+        table += `<tr>
+                    <th>S.NO</th>
+                    <th>date</th>
+                    <th>Name</th>
+                    <th>tvname</th>
+                    <th>phone_number</th>
+                    <th>appoinment_date</th>
+                    <th>Problem</th>
+                    <th>Status</th>
+                    <th>Solved_date</th>
+                </tr>`;
+        // now loop through staffs
+        // show their name and marks
+        for(let i = 0; i < staffs.length; i++) {
+            table += "<tr>";
+            table += `<td>${i}</td>`;
+            table += `<td>${staffs[i].date}</td>`;
+            table += `<td>${staffs[i].name}</td>`;
+            table += `<td>${staffs[i].tvname}</td>`;
+            table += `<td>${staffs[i].phone_number}</td>`;
+            table += `<td>${staffs[i].appoinment_date}</td>`;
+            table += `<td>${staffs[i].Problem}</td>`;
+            table += `<td>${staffs[i].Status}</td>`;
+            table += `<td>${staffs[i].Solved_date}</td>`;
+            table += "</tr>";
+        }
+        table += "</table>";
+        // append table to body
+        document.getElementById("reportlist").innerHTML += table;
+    })
+
+}
