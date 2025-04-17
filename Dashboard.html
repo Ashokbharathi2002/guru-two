@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>rgr electronics</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="tv technician,Door-Step Service,Certified technician,All leading TV Brands" name="keywords">
+    <meta content="Find A tv technician To Support Your Family" name="description">
+
+    <!-- Favicon -->
+    <link href="img/gurulogo.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+<body>
+
+    <!-- Navbar Start -->
+    <div class="container-fluid nav-bar bg-transparent">
+        <nav class="navbar navbar-expand-lg bg-white navbar-light py-0 px-4">
+            <a href="index.html" class="navbar-brand d-flex align-items-center text-center">
+                <div class="icon p-2 me-2">
+                    <img class="img-fluid" src="img/sqer logo.png" alt="Icon" style="width: 30px; height: 30px;">
+                </div>
+                <h2 class="m-0 text-primary">RGR</h2>
+            </a>
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto">
+                    <a href="index.html" class="nav-item nav-link active">logout</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div style="margin: auto; width: 50%; padding: 20px;">
+        <h1 style="text-align: center;">Welcome to RGR Electronics Dashboard</h1>
+        <p style="text-align: center;">Your trusted partner for all your electronic needs.</p>
+    </div>
+    <section>
+        <div class="container-fluid bg-light py-5 w-100"  style="margin: auto;">
+            <div class="container py-5">
+                <!-- From Uiverse.io by nikk7007 --> 
+                <button class="dashbtn" onclick="{document.getElementById('appointment').style.display='block'}"> Appointment </button>
+                <button class="dashbtn"> User  </button>
+                <button class="dashbtn"> Staff </button>
+                <!-- <button class="dashbtn"> Button</button> -->
+            </div>
+        </div>
+    </section>
+    <!-- appointment -->
+    <section id="appointment" style="display: block;">
+        <div class="container-fluid bg-light py-5 w-100"  style="margin: auto;">
+            <div class="container py-5">
+                <h1 style="text-align: center;">Appointment</h1>
+                <div>
+                    <input type="date" id="appdate" placeholder="Select Date" class="form-control" style="width: 200px; margin: auto;">
+                    <button id="fetch-appointments" onclick="findappoinment(event)" class="btn btn-primary" style="margin: 20px auto; display: block;">Fetch Appointments</button>
+                    <div id="staffList" style="overflow: scroll;"></div>
+                </div>
+            </div>
+        </div>    
+    </section>
+    <!-- User manage. -->
+    <section id="user">
+        <div class="container-fluid bg-light py-5 w-100"  style="margin: auto;">
+            <div class="container py-5">
+                <h1 style="text-align: center;">Find User</h1>
+                <div style="overflow: scroll;">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col"><input type="number" class="form-control" name="" placeholder="phone number" id="userphone"></th>
+                                <th scope="col"><button class="btn btn-primary w-100" onclick="finduser(event)">Find</button></th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-start">
+                            <tr>
+                                <td>name</td>
+                                <td id="user_name">name</td>
+                            </tr>
+                            <tr>
+                            
+                                <td>date</td>
+                                <td id="user_date">date</td>
+                            </tr>
+                            <tr>
+                                <td>tv name</td>
+                                <td id="user_tvname">tv name</td>
+                            </tr>
+                            <tr>
+                                
+                                <td>phone_number</td>
+                                <td id="user_phoner">phone_number</td>
+                            </tr>
+                            <tr>
+                                
+                                <td>appoinment_date</td>
+                                <td id="user_appoinment">appoinment_date</td>
+                            </tr>
+                            <tr>
+                                <td>Problem</td>
+                                <td id="user_problem">Problem</td>
+                            </tr>
+                            <tr>
+                                <td>Status</td>
+                                <td id="user_Status">Status</td>
+                                <td id="updatebtn"><button class="btn" onclick="updateStatus()">Complete</button></td>
+                            </tr>
+                            <tr>
+                                <td>Solved_date</td>
+                                <td id="user_Solved">Solved_date</td>
+                                <td id="updatebtn"><button class="btn" onclick="updateSolvedDate()">Today</button></td>
+                            </tr>  
+                        </tbody>
+                    </table>
+                </div>
+                <button class="btn btn-primary" onclick="getuserdata(event)">get all User</button>
+                <div id="userList"></div>
+            </div>
+        </div>    
+    </section>
+
+
+    
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="/js/main.js"></script>
+    <script src="/js/dashboard.js"></script>
+    <script src="https://sheetdb.io/handlebars.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/noumanqamar450/alertbox@main/version/1.0.2/alertbox.min.js"></script>
+</body>
+</html>

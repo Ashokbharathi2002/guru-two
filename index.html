@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <title>rgr electronics</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+    <meta content="tv technician,Door-Step Service,Certified technician,All leading TV Brands" name="keywords">
+    <meta content="Find A tv technician To Support Your Family" name="description">
 
     <!-- Favicon -->
     <link href="img/gurulogo.ico" rel="icon">
@@ -30,7 +30,6 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
 </head>
-
 <body>
     <div class="container-xxl bg-white p-0">
         <!-- Spinner Start -->
@@ -58,6 +57,8 @@
                         <a href="index.html" class="nav-item nav-link active">Home</a>
                         <a href="#AboutStart" class="nav-item nav-link">About</a>
                         <a href="#Contact" class="nav-item nav-link">Contact</a>
+                        <a href="#" class="nav-item nav-link" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="logintodash()">Login</a>
+                        <a href="/Dashboard.html" class="nav-item nav-link" id="dashboardlink" style="display: none;" >dashboard</a>
                     </div>
                 </div>
             </nav>
@@ -263,7 +264,7 @@
 
                                 <div class="appoinment" id="appoinmentoder" style="display: none;" >
                                 
-                                    <form action="https://sheetdb.io/api/v1/gp1vnx6wzfi5s " method="post" id="sheetdb_form">
+                                    <form action="https://sheetdb.io/api/v1/xa7vj6uk2ngyj" method="post" name="my_form" id="sheetdb-form">
 
                                         <div class="mb-3">
                                           <label for="clindname" class="form-label">Name</label>
@@ -283,12 +284,21 @@
 
                                         <div class="mb-3">
                                             <label for="clindnumber" class="form-label">Contact Number</label>
-                                            <input type="number" class="form-control" id="clindnumber" name="data[phonenumber]" required>
+                                            <input type="number" class="form-control" id="clindnumber" name="data[phone_number]" required>
                                         </div>
 
                                         <div class="mb-3">
                                             <label for="clinddate" class="form-label">Appoinment Date</label>
-                                            <input type="date" class="form-control" id="clinddate" name="data[appoinmentdate]" required>
+                                            <input type="date" class="form-control" id="clinddate" name="data[appoinment_date]" required>
+                                        </div>
+
+                                        <div class="mb-3" style="display: none;">
+                                            <label for="clinddate" class="form-label">toDate</label>
+                                            <input type="text" class="form-control" id="todate" name="data[date]" required>
+                                        </div>
+                                        <div class="mb-3" style="display: none;">
+                                            <label for="clinddate" class="form-label">Status</label>
+                                            <input type="text" class="form-control" id="todate" name="data[Status]" value="Pending" required>
                                         </div>
 
                                         <div class="mb-3">
@@ -301,37 +311,13 @@
                                         <button onclick="closeform()" type="button" class="btn-close" id="form-control" aria-label="Close"></button>
 
                                     </form>
-                                    <script src="https://sheetdb.io/handlebars.js"></script>
-                                    <script>
-
-                                        import SheetDB from 'sheetdb-js';
-                                        var form = document.getE1ementById("sheetdb_form");
-                                        form. addFventL.istener("submit", e => {
-                                            e. preventDefau1t();
-                                            fetch(form.action, {
-                                                method : "POST",
-                                                body: new FormData(document.getElementById("sheetdb_form")),
-                                            })
-                                            .then(
-                                                response.json()
-                                            )
-                                            .then((html) => {
-                                                // you can put any JS code here
-                                                alert("ok send")
-                                            });
-                                        })
-                                    </script>
+                                    
+                                    
 
                                 </div>
                                 <script>
 
-                                    function appoinmentfoem(){
-                                        document.getElementById("appoinmentoder").style.display="block";
-                                    }
                                     
-                                    function closeform(){
-                                        document.getElementById("appoinmentoder").style.display="none";
-                                    }
 
                                 </script>
                             </div>
@@ -382,6 +368,35 @@
         </div>
         <!-- Footer End -->
 
+        <!-- lofin model -->        
+        <div class="modal fade modal-dialog modal-dialog-centered modal-dialog-scrollable"id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Admin Login</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="loginid" class="form-label">User ID</label>
+                            <input type="email" class="form-control" id="loginid"  required value="guru@gmail.com">
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginpassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="loginpassword" required value="1234">
+                        </div>
+                        <button type="button" onclick="adminlogin()" class="btn btn-primary">Submit</button>
+                    </form>
+                    <h3 id="vccoad" style="display: none;">Verification Code: <span id="vcotp">000 000</span> </h3>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
 
         <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
@@ -397,6 +412,8 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script src="https://sheetdb.io/handlebars.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/noumanqamar450/alertbox@main/version/1.0.2/alertbox.min.js"></script>
 </body>
 
 </html>
