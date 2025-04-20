@@ -53,6 +53,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto">
+                    
                     <a href="index.html" class="nav-item nav-link active">logout</a>
                 </div>
             </div>
@@ -61,20 +62,23 @@
     <div style="margin: auto; width: 50%; padding: 20px;">
         <h1 style="text-align: center;">Welcome to RGR Electronics Dashboard</h1>
         <p style="text-align: center;">Your trusted partner for all your electronic needs.</p>
+        <p style="text-align: center;">
+            <a href="#" id="currentDate">Date</a> // <a href="#" id="currentTime">Time</a>
+        </p>
     </div>
     <section>
         <div class="container-fluid bg-light py-5 w-100"  style="margin: auto;">
             <div class="container py-5">
                 <!-- From Uiverse.io by nikk7007 --> 
-                <button class="dashbtn" onclick="{document.getElementById('appointment').style.display='block'}"> Appointment </button>
-                <button class="dashbtn"> User  </button>
-                <button class="dashbtn"> Staff </button>
-                <button class="dashbtn"> Report </button>
+                <button class="dashbtn" onclick="appment()"> Appointment </button>
+                <button class="dashbtn" onclick="showuser()"> User  </button>
+                <button class="dashbtn" onclick="showstaff()"> Staff </button>
+                <button class="dashbtn" onclick="sreport()"> Report </button>
             </div>
         </div>
     </section>
     <!-- appointment -->
-    <section id="appointment" style="display: block;">
+    <section id="appointment" style="display: none;">
         <div class="container-fluid bg-light py-5 w-100"  style="margin: auto;">
             <div class="container py-5">
                 <h1 style="text-align: center;">Appointment</h1>
@@ -87,7 +91,7 @@
         </div>    
     </section>
     <!-- User manage. -->
-    <section id="user">
+    <section id="user" style="display: none;">
         <div class="container-fluid bg-light py-5 w-100"  style="margin: auto;">
             <div class="container py-5">
                 <h1 style="text-align: center;">Find User</h1>
@@ -146,7 +150,7 @@
         </div>    
     </section>
     <!-- Report -->
-    <section id="appointment" style="display: block;">
+    <section id="showreport" style="display: none;">
         <div class="container-fluid bg-light py-5 w-100"  style="margin: auto;">
             <div class="container py-5">
                 <h1 style="text-align: center;">User Report.</h1>
@@ -162,6 +166,15 @@
             </div>
         </div>    
     </section>
+    <!-- Staff manage. -->
+    <section id="showstaff" style="display: none;">
+        <div class="container-fluid bg-light py-5 w-100"  style="margin: auto;">
+            <div class="container py-5">
+                <h1 style="text-align: center;">Staff Manage.</h1>
+                <h3 style="text-align: center;">comming soon</h3>
+            </div>
+        </div>
+     </section>
 
 
     
